@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatGPT for Excel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 20px;
+      color: #333;
+    }
+    h2 {
+      color: #0a66c2;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 16px;
+      margin-right: 8px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: #0a66c2;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #084a8e;
+    }
+    .btn-secondary {
+      background-color: #777;
+    }
+    .btn-secondary:hover {
+      background-color: #555;
+    }
+    #status {
+      margin-top: 12px;
+      font-style: italic;
+      color: green;
+    }
+    .footer {
+      font-size: 12px;
+      color: #999;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>ChatGPT for Excel</h2>
+  <p>Paste your <strong>OpenAI API key</strong> below. This key will be stored locally and securely.</p>
+
+  <input type="text" id="apikey" placeholder="sk-..." />
+  <div>
+    <button onclick="saveKey()">Save</button>
+    <button class="btn-secondary" onclick="clearKey()">Clear Key</button>
+  </div>
+
+  <div id="status"></div>
+
+  <div class="footer">
+    Don't have an API key? Please contact your manager to request one.
+  </div>
+  <hr>
+<h4>How to use</h4>
+<p>
+  After saving your OpenAI API key, you can use the following Excel formula:
+</p>
+<pre style="background:#f4f4f4;padding:10px;border-radius:6px;">
+=ChatGPT(prompt, input, temperature = 0.5)
+</pre>
+
+<ul>
+  <li><strong>First argument:</strong> the prompt or instruction (e.g., "Translate to Spanish")</li>
+  <li><strong>Second argument:</strong> the input text (e.g., a cell reference like A2)</li>
+  <li><strong>Third argument (optional):</strong> temperature (0 = precise, 1 = creative)</li>
+</ul>
+
+<p>
+  Example: <code>=ChatGPT("Explain like I'm 5:", A2)</code>
+</p>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>
