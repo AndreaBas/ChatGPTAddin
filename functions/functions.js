@@ -11,7 +11,7 @@ async function ChatGPT(prompt, input, temperature = 0.7) {
   const apiKey = await OfficeRuntime.storage.getItem("openai-key");
 
   if (!apiKey) {
-    return "❌ No API key set. Open task pane and enter your OpenAI key.";
+    return "No API key set. Open task pane and enter your OpenAI key.";
   }
 
   try {
@@ -32,6 +32,6 @@ async function ChatGPT(prompt, input, temperature = 0.7) {
     const data = await response.json();
     return data.choices[0].message.content;
   } catch (error) {
-    return "❌ Error: " + error.message;
+    return "Error: " + error.message;
   }
 }
